@@ -1,0 +1,63 @@
+<hr/>
+<div class="container">
+<div class="row">
+    <div class="panel-body">
+        <form #form="ngForm" (submit)="submitForm(form)">
+            <div id="MainDiv" class="row">
+                <div id="UserImage"  class="form-group col-md-4">                    
+                    <div class="UserInfor">
+                        <img [src]="imageName" alt="UserImage" class="img-circle" />
+                    </div>
+                    <hr/>
+                    <div>{{connectionsCount}} Connections</div>
+                    <hr/>
+                    <div>{{postsCount}} Posts</div>                    
+                </div>
+                <div id="UserDetails"  class="form-group col-md-8">                                                            
+                        <table class="table table-striped">
+                            <thead>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Password</th>
+                                <th>DOB</th>
+                                <th>Gender</th>
+                                <th>Role</th>
+                                <th>Address</th>
+                                <th>City</th>
+                                <th>State</th>
+                                <th>country</th>
+                                <th>Block User</th>
+                                <th>Actions</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let data of userInfo">
+                                    <td>{{data.firstname}}</td>
+                                    <td>{{data.lastname}}</td>
+                                    <td>{{data.email}}</td>
+                                    <td>{{data.password}}
+                                        <input *ngIf="showEdit" type="text" [(ngModel)]="data.password"/>                                        
+                                    </td>
+                                    <td>{{data.DOB}}</td>
+                                    <td>{{data.gender}}</td>
+                                    <td>{{data.role}}</td>
+                                    <td>{{data.address}}</td>
+                                    <td>{{data.city}}</td>
+                                    <td>{{data.state}}</td>
+                                    <td>{{data.country}}</td>
+                                    <td><input type="checkbox" [checked]="data.accountBlock"  [(ngModel)]="data.accountBlock" ng-change="handleChange()"> Check me
+                                    </td>
+                                    <td><button id ="btnEdit" [hidden]="!btnVisible" (click)="EditEmp()">Edit </button>
+                                        <button id ="btnUpdate" [hidden]="btnVisible" (click)="UpdateEmp(data._id,data.password,data.accountBlock)">Update</button></td>
+
+                                </tr>
+                            </tbody>
+
+                            
+                        </table>                                                   
+                </div>
+            </div>            
+        </form>       
+    </div>
+</div>    
+</div>

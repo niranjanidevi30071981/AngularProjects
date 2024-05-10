@@ -1,0 +1,10 @@
+<div>
+    <button class="btn btn-primary" (click)="showTab(1)">Profile Settings</button>
+    <button  class="btn btn-primary" (click)="showTab(2)">Change Password</button>
+  </div>
+  <div *ngIf="selectedTab === 1">
+    <app-profilesetting></app-profilesetting>
+  </div>
+  <div *ngIf="selectedTab === 2">
+  <app-changepassword></app-changepassword>
+  </div>

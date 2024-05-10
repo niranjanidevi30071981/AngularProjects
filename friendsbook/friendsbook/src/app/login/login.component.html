@@ -1,0 +1,61 @@
+
+<hr/>
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Registration
+        </div>
+        <div class="panel-body">
+            <form #form="ngForm" (submit)="submitForm(form)">
+                <div class="form-group col-md-8"
+                [class.has-error]="userName.invalid  && userName.touched"
+                [class.has-success]="userName.valid">
+
+                    <label class="control-label" for="userName">User Name</label>
+                    <input id="userName" class="form-control"
+                    name="userName"
+                    [(ngModel)]="myUserLogin.userName"
+                    #userName="ngModel"
+                    required
+                    />
+                    <div class="alert alert-danger" *ngIf="userName.invalid && userName.touched">
+                        User Name is required
+                    </div>
+                </div>   
+                <div class="form-group col-md-8"
+                [class.has-error]="password.invalid  && password.touched"
+                [class.has-success]="password.valid">
+
+                    <label class="control-label" for="password">Password</label>
+                    <input id="password" class="form-control"
+                    name="password"
+                    [(ngModel)]="myUserLogin.password"
+                    #password="ngModel"
+                    required
+                    />
+                    <div class="alert alert-danger" *ngIf="password.invalid && password.touched">
+                        Password is required
+                    </div>
+                </div> 
+
+                <br/>
+            <div class="form-group col-md-8">  
+                <div class="col-md-4">           
+                    <button class="btn btn-success" (click)="ForgotPassword()">
+                        Forgot Password
+                    </button>
+                </div>   
+                <div class="col-md-4 col-md-offset-4">  
+                    <button class="btn btn-success" type="submit">
+                        Login
+                    </button>
+              </div>
+            </div>
+                <div class="alert alert-danger " *ngIf="loginError">
+                    {{loginError}}
+                </div>               
+                
+            </form>
+        </div>
+    </div>
+</div>

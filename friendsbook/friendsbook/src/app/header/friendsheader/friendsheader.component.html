@@ -1,0 +1,26 @@
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><b>FBOOK</b></a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">         
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a [routerLink]="['/home']"  [ngClass]="{'selected': selectedTab === 1}"><b>Home</b></a></li>
+        
+            <li *ngIf='roletype === "Admin"'><a [routerLink]="['/users']"  [ngClass]="{'selected': selectedTab === 2}"> <b>Users</b></a></li>
+               
+          <li><a [routerLink]="['/network']"  [ngClass]="{'selected': selectedTab === 3}" ><b>Newtwork</b></a></li>
+          <li><a [routerLink]="['/friendsList']" [ngClass]="{'selected': selectedTab === 4}"><b>Friends</b></a></li>
+          <li><a [routerLink]="['/settings']" [ngClass]="{'selected': selectedTab === 5}"><b>Settings</b></a></li>
+          <li><a (click)="logoutUser()" [ngClass]="{'selected': selectedTab === 6}" ><b>Logout</b></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>

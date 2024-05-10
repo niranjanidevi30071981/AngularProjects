@@ -1,0 +1,30 @@
+<hr/>
+<div class="container">
+<div class="row">
+    <div class="panel-body">
+        <form #form="ngForm" (submit)="submitForm(form)">
+            <div id="MainDiv" class="row">
+                <div id="UserImage"  class="form-group col-md-6">                    
+                    <div class="UserInfor">
+                        <img [src]="imageName" alt="UserImage" class="img-circle" />
+                    </div>
+                    <hr/>
+                    <div>{{connectionsCount}} Connections</div>
+                    <hr/>
+                    <div>{{postsCount}} Posts</div>                    
+                </div>
+                <div id="UserDetails"  class="form-group col-md-6">                   
+                    <div class="row" *ngFor="let user of NetworkUserResponse" >                                                
+                      <img [src]="user.image" width="50px" height="50px" class="img-circle" [alt]="userImage"/>
+                      &nbsp;  &nbsp;  &nbsp;  &nbsp;  {{user.RequestUserfirstname}}   {{user.RequestUserlastname}} &nbsp;  &nbsp;  &nbsp;  &nbsp;                          
+                       <button class="btn btn-success" (click)="RequestPending(user.RequestUserfirstname)" [disabled]="user.pendingstatus" >Request Pending</button>  
+                       &nbsp;<button class="btn btn-success" (click)="SendFriendRequest(user.RequestUserfirstname)" [disabled]="user.sendStatus" >Send</button>  
+                       &nbsp;<button class="btn btn-success" (click)="AcceptFriendsRequest(user.RequestUserfirstname)" [disabled]="user.acceptStatus" >accept</button>  
+                       &nbsp;<button class="btn btn-success" (click)="RejectFriendsRequest(user.RequestUserfirstname)" [disabled]="user.rejectStatus" >reject</button>                                     
+                     </div>                                        
+                </div>
+            </div>            
+        </form>       
+    </div>
+</div>    
+</div>

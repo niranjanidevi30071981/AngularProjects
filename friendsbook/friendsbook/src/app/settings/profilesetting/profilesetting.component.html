@@ -1,0 +1,141 @@
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Profile Settings
+        </div>
+        <div class="panel-body">
+        <form #form="ngForm" (submit)="submitForm(form)">
+            <div class="row">
+                <div class="form-group col-md-6"
+                [class.has-error]="firstname.invalid  && firstname.touched"
+                [class.has-success]="firstname.valid">
+
+                    <label class="control-label" for="fname">First Name</label>
+                    <input id="fname" class="form-control"
+                    name="firstname"
+                    [(ngModel)]="myProfile.firstname"
+                    #firstname="ngModel"
+                    required
+                    />
+                    <div class="alert alert-danger" *ngIf="firstname.invalid && firstname.touched">
+                        FirstName is required
+                    </div>
+                </div>
+            
+            <div class="form-group col-md-6"
+            [class.has-error]="lastname.invalid  && lastname.touched"
+            [class.has-success]="lastname.valid">
+
+                <label class="control-label" for="lname">Last Name</label>
+                <input id="lname" class="form-control"
+                name="lastname"
+                [(ngModel)]="myProfile.lastname"
+                #lastname="ngModel"
+                required
+                />
+                <div class="alert alert-danger" *ngIf="lastname.invalid && lastname.touched">
+                    LastName is required
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-6"
+            [class.has-error]="gender.invalid  && gender.touched"
+            [class.has-success]="gender.valid">
+
+                <label class="control-label" for="gender">Gender</label>
+                <input id="gender" class="form-control"
+                name="gender"
+                [(ngModel)]="myProfile.gender"
+                #gender="ngModel"
+                required
+                />
+                <div class="alert alert-danger" *ngIf="gender.invalid && gender.touched">
+                    Gender is required
+                </div>
+            </div>
+        
+        <div class="form-group col-md-6"
+        [class.has-error]="DOB.invalid  && DOB.touched"
+        [class.has-success]="DOB.valid">
+
+            <label class="control-label" for="DOB">DOB</label>
+            <input id="DOB" class="form-control"
+            name="DOB"
+            [(ngModel)]="myProfile.DOB"
+            #DOB="ngModel"
+            required
+            />
+            <div class="alert alert-danger" *ngIf="DOB.invalid && DOB.touched">
+                DOB is required
+            </div>
+        </div>
+       </div>
+
+        <div class="row">            
+            <div class="form-group col-md-6"
+                [class.has-error]="mail.invalid  && mail.dirty">
+                    <label class="control-label" for="email">Email</label>
+                    <input id="email" class="form-control" name="email"
+                    [(ngModel)]="myProfile.email"
+                    pattern="^([a-zA-Z0-9]+)@([a-zA-Z0-9]+)\.([a-zA-Z]{2,5})$"
+                    #mail="ngModel"/>
+                    <div class="alert alert-danger" *ngIf="mail.invalid && mail.dirty">
+                        Please enter valid email
+                    </div>
+                </div>                    
+                <div class="form-group col-md-6"
+                [class.has-error]="phoneNo.invalid  && phoneNo.dirty">
+                    <label class="control-label" for="phoneNo">Phone No</label>
+                    <input id="phoneNo" class="form-control" name="phoneNo"
+                    [(ngModel)]="myProfile.phoneno"
+                    minlength="8"
+                    #phoneNo="ngModel"/>
+                    <div class="alert alert-danger" *ngIf="phoneNo.invalid && phoneNo.dirty">
+                       Min Length of password is 8
+                    </div>
+                </div> 
+            </div>
+            <div class="row form-group">
+                <div class="form-group col-md-6" >
+                    <label class="control-label" for="address">Address</label>
+                    <input id="address" class="form-control" name="address"
+                    [(ngModel)]="myProfile.address"                      
+                    #address="ngModel"/>                        
+                </div> 
+                <div class="form-group col-md-6">
+                    <label class="control-label" for="city">City</label>
+                    <input id="city" class="form-control" name="city"
+                    [(ngModel)]="myProfile.city"                       
+                    #city="ngModel"/>                        
+                </div>  
+            </div>
+            <div class="row form-group">
+                <div class="form-group col-md-6">
+                    <label class="control-label" for="state">State</label>
+                    <input id="state" class="form-control" name="state"
+                    [(ngModel)]="myProfile.state"                       
+                    #state="ngModel"/>                        
+                </div>  
+                <div class="form-group col-md-6" >
+                    <label class="control-label" for="Country">Country</label>
+                    <input id="Country" class="form-control" name="Country"
+                    [(ngModel)]="myProfile.country"                       
+                    #Country="ngModel"/>                        
+                </div>                  
+            </div>       
+            <br/>
+        <div class="form-group col-md-6">  
+               <div class="col-md-4 col-md-offset-4">  
+                <button class="btn btn-success" type="submit">
+                    Save
+                </button>
+          </div>
+        </div>
+            <div class="alert alert-danger " *ngIf="registerErrorMsg">
+                {{registerErrorMsg}}
+            </div>      
+        </form>       
+    </div>
+</div>    
+</div>
